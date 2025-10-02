@@ -27,4 +27,4 @@ jobs:
           context: .
           file: TimeApi2/Dockerfile
           push: true
-          tags: michalwochna/timeapi:latest
+          tags: michalwochna/timeapi2:latest
