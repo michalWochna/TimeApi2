@@ -5,15 +5,17 @@ on:
   
 jobs:
   buildImage:
-    environment: dev
     permissions:
       contents: read
       id-token: write
     runs-on: ubuntu-latest
+    environment: dev
+
     steps:
-      # Checks out the repository this file is in
       - uses: actions/checkout@v4
       
+      - name: Read vars
+        run: echo ${{ secrets.DOCKERHUB_USERNAME }}
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
