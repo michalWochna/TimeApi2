@@ -16,6 +16,7 @@ jobs:
       
       - name: Read vars
         run: echo ${{ secrets.DOCKERHUB_USERNAME }}
+
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
