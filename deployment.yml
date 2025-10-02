@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Read vars
+      - name: Read vars x
         run: echo ${{ secrets.DOCKERHUB_USERNAME }}
 
       - name: Log in to Docker Hub
