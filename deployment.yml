@@ -10,6 +10,9 @@ jobs:
       contents: read
       id-token: write
     runs-on: ubuntu-latest
+    env:
+      dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
+      dockerhub_password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     steps:
       - uses: actions/checkout@v4
@@ -18,8 +21,8 @@ jobs:
         name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: $dockerhub_username
+          password: $dockerhub_password
 
       - name: Build and push image Docker Hub
         uses: docker/build-push-action@v5
@@ -27,4 +30,4 @@ jobs:
           context: .
           file: TimeApi2/Dockerfile
           push: true
-          tags: michalwochna/timeapi2:latest
+          tags: michalwochna/test:latest
