@@ -8,7 +8,7 @@ jobs:
     environment: dev
     runs-on: ubuntu-latest
     env:
-        Test: 'dupa'
+        Test: 'dupax'
 
     steps:
 
