@@ -5,6 +5,7 @@ on:
 
 jobs:
   buildImage:
+    environment: dev
     runs-on: ubuntu-latest
     env:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
