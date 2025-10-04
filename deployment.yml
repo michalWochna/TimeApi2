@@ -7,8 +7,14 @@ jobs:
   buildImage:
     environment: dev
     runs-on: ubuntu-latest
+    env:
+        Test: 'dupa'
 
     steps:
+
+      - name: test
+        run: echo $Test
+  
       - uses: actions/checkout@v4
 
       - name: Login to Docker Hub
