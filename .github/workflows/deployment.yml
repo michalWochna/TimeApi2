@@ -67,7 +67,9 @@ jobs:
         uses: azure/use-kubelogin@v1
         with:
           kubelogin-version: 'v0.0.25'
-
+      - name: test
+        run: echo ${{ env.RESOURCE_GROUP }}
+      
       # Retrieves your Azure Kubernetes Service cluster's kubeconfig file
       - name: Get K8s context
         uses: azure/aks-set-context@v3
@@ -84,4 +86,4 @@ jobs:
           action: deploy
           manifests: $DEPLOYMENT_MANIFEST_PATH
           images: |
-            ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
+            michalwochna/timeapi2:latest
