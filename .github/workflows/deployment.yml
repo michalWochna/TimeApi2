@@ -43,6 +43,12 @@ jobs:
           push: true
           tags: michalwochna/test:latest
 
+      - name: Upload k8s manifests
+        uses: actions/upload-artifact@v4
+        with:
+          name: manifests
+          path: TimeApi2/k8s/*.yaml
+
   deploy:
     environment: dev
     permissions:
@@ -55,6 +61,11 @@ jobs:
       # Checks out the repository this file is in
       - uses: actions/checkout@v4
 
+      - name: Download manifests
+        uses: actions/download-artifact@v5
+        with:
+          name: manifests
+          
       - name: Azure CLI Login
         uses: azure/login@v2
         with:
@@ -84,6 +95,6 @@ jobs:
         uses: Azure/k8s-deploy@v4
         with:
           action: deploy
-          manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
+          manifests: manifests
           images: |
             michalwochna/timeapi2:latest
