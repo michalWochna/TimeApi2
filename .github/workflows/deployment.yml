@@ -44,6 +44,7 @@ jobs:
           tags: michalwochna/test:latest
 
   deploy:
+    environment: dev
     permissions:
       actions: read
       contents: read
