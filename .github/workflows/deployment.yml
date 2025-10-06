@@ -65,6 +65,7 @@ jobs:
         uses: actions/download-artifact@v5
         with:
           name: manifests
+          path: ./_artifacts/manifests
           
       - name: Azure CLI Login
         uses: azure/login@v2
@@ -95,6 +96,5 @@ jobs:
         uses: Azure/k8s-deploy@v4
         with:
           action: deploy
-          manifests: manifests
-          images: |
-            michalwochna/timeapi2:latest
+          manifests: ./_artifacts/manifests/**
+          images: michalwochna/timeapi2:latest
