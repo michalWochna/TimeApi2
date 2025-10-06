@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  DEPLOYMENT_MANIFEST_PATH: TimeApi2/k8s/*.yaml
+  DEPLOYMENT_MANIFEST_PATH: ./TimeApi2/k8s/*.yaml
 
 jobs:
   buildImage:
