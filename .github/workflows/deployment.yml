@@ -96,5 +96,5 @@ jobs:
         uses: Azure/k8s-deploy@v4
         with:
           action: deploy
-          manifests: ./_artifacts/manifests/**
+          manifests: ./_artifacts/manifests
           images: michalwochna/timeapi2:latest
