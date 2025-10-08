@@ -1,14 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: timeapi2-deployment
-  labels:
-    app: timeapi2
+    name: timeapi2
 spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: timeapi2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -18,7 +13,10 @@ spec:
       - name: timeapi2
         image: michalwochna/timeapi2:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         env:
-        - name: ASPNETCORE_ENVIRONMENT
-          value: "Production"
+        - name: ASPNETCORE_URLS
+          value: http://*:80
+  selector:
+    matchLabels:
+      app: timeapi2
