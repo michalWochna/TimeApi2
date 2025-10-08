@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: manifests
-          path: TimeApi2/k8s/*.yaml
+          path: TimeApi2/k8s/*.y*
 
   deploy:
     environment: dev
