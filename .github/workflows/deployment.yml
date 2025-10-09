@@ -66,6 +66,9 @@ jobs:
         with:
           name: manifests
           path: ./_artifacts/manifests
+
+      - name: Display manifests
+        run: cat ./_artifacts/manifests/deployment.yml
           
       - name: Azure CLI Login
         uses: azure/login@v2
