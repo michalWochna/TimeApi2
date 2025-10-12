@@ -26,6 +26,11 @@ app.MapGet("/weatherforecast", () =>
     return forecast;
 });
 
+app.MapGet("/Kasia", () =>
+{
+    return "Kocham Cie";
+});
+
 app.Run();
 
 internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
