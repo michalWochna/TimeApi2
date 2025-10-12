@@ -41,7 +41,7 @@ jobs:
           context: .
           file: TimeApi2/Dockerfile
           push: true
-          tags: michalwochna/test:latest
+          tags: michalwochna/timeapi:latest
 
       - name: Upload k8s manifests
         uses: actions/upload-artifact@v4
