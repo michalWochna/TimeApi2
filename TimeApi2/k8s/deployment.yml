@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: timeapi2
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: timeapi2
+    spec:
+      containers:
+      - name: timeapi2
+        image: michalwochna/timeapi:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: ASPNETCORE_URLS
+          value: http://*:8080
+  selector:
+    matchLabels:
+      app: timeapi2
